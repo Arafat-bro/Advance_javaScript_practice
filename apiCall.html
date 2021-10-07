@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Call by javaScript</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+      const container = document.getElementById('container');
+      const request = new XMLHttpRequest();
+      request.open('GET','https://restcountries.eu/rest/v2/name/bangladesh');
+      request.send();
+
+      //to get data
+      request.addEventListener('load',function(){
+        //console.log(this.responseText);   //array into object
+        const [data] = JSON.parse(this.responseText);
+        //console.log(data.capital);  //dhaka
+        const htmlData = `<div><img src='${data.flag}'></div>
+        <div style='width:200px;'>Country Name : ${data.name} <br/> Capital : ${data.capital}<br/> Population : ${data.population}<div>`;
+            container.insertAdjacentHTML('afterbegin',htmlData);
+      });
+      
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <h1 class="center-align">
+            Contact List
+        </h1>
+        <input type="text" id="filterInput" placeholder="Search Contact">
+        <ul class="collecton with-header" id='names'>
+            <li class="collection-header">
+                <h5>A</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Anna</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Adoe</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Adrame</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Ankit</a>
+            </li>
+            <li class="collection-header">
+                <h5>B</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Bin</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Boro</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Base</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Bustard</a>
+            </li>
+            <li class="collection-header">
+                <h5>C</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Carrie</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Cotlin</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Charlie</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Captain</a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        let filterInput = document.getElementById('filterInput');
+        filterInput.addEventListener('keyup',filterNames);
+
+        function filterNames(){
+            let filterValue = document.getElementById('filterInput').value.toLowerCase();
+            // console.log(filterValue);
+
+            //get ul
+            let ul = document.getElementById('names');
+            //get li
+            let li = ul.querySelectorAll('li.collection-item');
+
+            for(let  i =0; i < li.length; i++){
+                let a = li[i].children[0].innerHTML;
+                
+                if(a.toLowerCase().indexOf(filterValue) > -1){
+                    li[i].style.display = '';
+                }else{
+                    li[i].style.display = 'none';
+                }
+            }
+        }
+        //keybord test
+        //let me uee it agian, owao!! it's awesome. 
+        //let's practice through it.><
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermometer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body{
+            background-color: rgb(248, 246, 135);
+            text-align: center;
+            font-size: 30px;
+        }
+        h1{
+            margin-top: 100px;
+            color: black
+            
+        }
+        #temp{
+            font-size: 200px;
+            margin-top: 10px;
+        }
+        #tempCalc{
+            text-align: center;
+            margin-top: 20px;
+            background-color: rgb(255, 42, 148);
+            width: 70%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        form{
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="fw-bolder">This is a dynamic thermometer
+    <div class="main-div"><span id="temp" class="fa"></span></div>
+    </h1>
+    <form id="tempCalc" onsubmit="tempFunc(); return false">
+        <label for="tempCalc">Convert Temprerature Parameter:</label><br/>
+        <input type="number" name="tempPara" id="tempPara" />
+        <select name="tempType" id="tempType">
+            <option value="1">Fahrenheit</option>
+            <option value="2">Celcius</option>
+        </select><br>
+        <button type="submit" name="temp" class="btn btn-primary">Submit</button><br/>
+        <span id="result-cont"></span>
+    </form>
+    <script>
+
+        const tempLoad = () => {
+            let temp = document.getElementById('temp');
+            temp.innerHTML = "&#xf2cb";
+
+            setTimeout(() => {
+                temp.innerHTML = "&#xf2ca";
+                temp.style.color = "blue";
+            },1000);
+            setTimeout(() => {
+                temp.innerHTML = "&#xf2c9";
+                temp.style.color = "green";
+            },2000);
+            setTimeout(() => {
+                temp.innerHTML = "&#xf2c8";
+                temp.style.color = "tomato";
+
+            },3000);
+            setTimeout(() => {
+                temp.innerHTML = "&#xf2c7";
+                temp.style.color = "red";
+            },4000);
+        }
+        tempLoad();
+        setInterval(tempLoad,5000);
+        
+        let tempFunc = () => {
+        const tempVal = document.getElementById('tempPara').value;
+        const tempOpt = document.getElementById('tempType');
+        const tempSel = tempType.options[tempOpt.selectedIndex].value;
+        
+        console.log(tempSel);
+        let result;
+        
+        const celToFah = (cel) => {
+            let fahren = (cel * 1.8) + 32;
+            return fahren;
+        }
+        const fahToCel = (feh) => {
+            let celci = (feh -32) * 5/9;
+            return celci;
+        }
+        if(tempSel == 1){
+            result = fahToCel(tempVal);
+            document.getElementById('result-cont').innerHTML = `${result} degree celcius`;
+        }else{
+            result = celToFah(tempVal);
+            document.getElementById('result-cont').innerHTML = `${result} degree Fahrenheit`;
+        }
+        }
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

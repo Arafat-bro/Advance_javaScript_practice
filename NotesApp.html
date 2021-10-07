@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Note App</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgb(226, 226, 226);
+        }
+        .heading{
+            width:100%;
+            background-color: crimson;
+            color: black;
+            padding:18px;
+            font-size: 30px;
+            text-align: center;
+        }
+        .note{
+            width: 260px;
+            height: 200px;
+            margin-top: 40px;
+            margin-left: 40px;
+            background-color: white;
+        }
+        .actions{
+            text-align: right;
+            margin-right: 10px;
+            padding-top: 5px;
+        }
+        .edit{
+            border-radius: 50%;
+            background-color: rgb(4, 199, 4);
+            color: white;
+            padding: 10px;
+            border:none;
+            
+        }
+        .edit:hover{
+            background-color: white;
+            color: rgb(7, 216, 7);
+            cursor: pointer;
+            filter:drop-shadow(0px 10px 8px green) ;
+        }
+        .delete{
+            border-radius: 50%;
+            background-color: red;
+            color: white;
+            padding: 10px;
+            border: none;
+        }
+        .delete:hover{
+            background-color: white;
+            color: red;
+            filter:drop-shadow(0px 10px 8px red) ;
+            cursor: pointer;
+        }
+        textarea{
+            border: none;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="heading"><i class="far fa-sticky-note    "></i> Note App</div>
+    </header>
+    <div class="note">
+        
+            <div class="actions">
+            <button class="edit"><i class="fas fa-edit    "></i></button> &nbsp;<button class="delete"> <i class="fas fa-trash-alt    "></i></button>
+            </div>
+            <div class="main"></div>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!-- //Advance javascript
+//Event Propagation - capturing(top to bottom) & bubbling(bottom to top)
+//by default - bubbling -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .parentDiv{
+            height: 300px;
+            width: 300px;
+            border: 2px solid mediumslateblue;
+            background-color: indianred;
+            cursor: pointer;
+            box-shadow: 0 10px 13px -10px rgba(0, 0,0, 6);
+            margin: auto;
+        }
+        .ChildDiv{
+            height: 100px;
+            width: 100px;
+            border: 2px solid greenyellow;
+            background-color: crimson;
+            cursor: pointer;
+            box-shadow: 0 10px 13px -10px rgba(0, 0,0, 4);
+            margin: auto;
+        }
+    </style>
+    <title>Document</title>
+
+</head>
+<body>
+    
+    <div id="parent" class="parentDiv">
+        <div id="child" class="ChildDiv"></div>
+    </div>
+
+
+    <script>
+    const parentID = document.getElementById("parent");
+    const childID = document.getElementById("child");
+
+    parentCall = () => {
+        alert("Parent Div Clicked");
+    }
+    childCall = () => {
+        alert("Child Div Clicked");
+        //event.stopPropagation();  //stop forward alert
+    }
+
+    parentID.addEventListener("click",parentCall,true);  //true for capturing
+    childID.addEventListener("click",childCall,true); //by defalt false for bubbling
+    </script>
+</body>
+</html>
